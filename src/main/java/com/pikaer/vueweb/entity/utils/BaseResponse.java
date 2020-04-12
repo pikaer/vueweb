@@ -15,6 +15,11 @@ public class BaseResponse<T> {
         this.msg = msg;
     }
 
+    public void setCodeAndMsg(ResponseCodeEnum codeEnum) {
+        this.code = codeEnum.getCode();
+        this.msg = codeEnum.getMsg();
+    }
+
     public T getData() {
         return data;
     }
@@ -29,6 +34,10 @@ public class BaseResponse<T> {
 
     public void setCode(int code) {
         this.code = code;
+    }
+
+    public void setCode(ResponseCodeEnum codeEnum) {
+        this.code = codeEnum.getCode();
     }
 
     public String getMsg() {

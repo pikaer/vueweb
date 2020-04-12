@@ -8,6 +8,7 @@ import VChartsDemo from '../components/VChartsDemo.vue'
 const Home = () => import(/* webpackChunkName: "home" */ '../components/Home.vue')
 // 系统管理
 const Users = () => import(/* webpackChunkName: "users_roles_rights" */ '../components/system/Users.vue')
+const Menu = () => import(/* webpackChunkName: "users_roles_rights" */ '../components/system/Menu.vue')
 const Roles = () => import(/* webpackChunkName: "users_roles_rights" */ '../components/system/Roles.vue')
 const Rights = () => import(/* webpackChunkName: "users_roles_rights" */ '../components/system/Rights.vue')
 const ServiceLog = () => import(/* webpackChunkName: "users_logs_rights" */ '../components/log/ServiceLog.vue')
@@ -28,6 +29,7 @@ const routes = [
         component: Home,
         children: [
             { path: '/users', component: Users },
+            { path: '/menu', component: Menu },
             { path: '/roles', component: Roles },
             { path: '/rights', component: Rights },
             { path: '/servicelog', component: ServiceLog },

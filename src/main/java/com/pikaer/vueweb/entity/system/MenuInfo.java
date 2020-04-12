@@ -32,6 +32,16 @@ public class MenuInfo {
      */
     private String icon;
 
+    /**
+     * 能否上移
+     */
+    private boolean canUp;
+
+    /**
+     * 能否下移
+     */
+    private boolean canDown;
+
     private List<MenuInfo> subMenuList;
 
     public MenuInfo(int id, String name, String path, String icon) {
@@ -95,5 +105,21 @@ public class MenuInfo {
 
     public void setSubMenuList(List<MenuInfo> subMenuList) {
         this.subMenuList = subMenuList;
+    }
+
+    public boolean isCanUp() {
+        return canUp;
+    }
+
+    public void setCanUp(boolean canUp) {
+        this.canUp = canUp;
+    }
+
+    public boolean isCanDown() {
+        return canDown;
+    }
+
+    public void setCanDown(boolean canDown) {
+        this.canDown = canDown;
     }
 }

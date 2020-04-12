@@ -3,7 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pikaer.vueweb.mapper.frameworkdb.MenuInfoMapper">
-    <select id="getUserInfoByUid" resultType="com.pikaer.vueweb.dal.frameworkdb.entity.UserInfoEntity">
-        select * from sys_userinfo limit 1;
+    <select id="selectMenuList" resultType="com.pikaer.vueweb.dal.frameworkdb.entity.MenuInfoEntity">
+        select * from sys_menuinfo;
     </select>
+    <select id="getMenuInfoById" resultType="com.pikaer.vueweb.dal.frameworkdb.entity.MenuInfoEntity" parameterType="int">
+        select * from sys_menuinfo where id = #{id} limit 1;
+    </select>
+    <insert id="insertMenu" parameterType="com.pikaer.vueweb.dal.frameworkdb.entity.MenuInfoEntity">
+        insert into sys_menuinfo(id,parentId,index,name,path,icon) values(#{id},#{parentId},#{index},#{name},#{path},#{icon});
+    </insert>
+    <delete id="deleteMenu" parameterType="int">
+        delete from sys_menuinfo where id = #{id};
+    </delete>
+    <update id="updateIndex" parameterType="com.pikaer.vueweb.dal.frameworkdb.entity.MenuInfoEntity">
+        update sys_menuinfo set `index`=#{index} where id = #{id};
+    </update>
 </mapper>

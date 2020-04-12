@@ -8,7 +8,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/frameworkdb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
+                <property name="url" value="jdbc:mysql://122.51.93.10:3306/frameworkdb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSSL=false"/>
                 <property name="username" value="pikaer"/>
                 <property name="password" value="abc123"/>
             </dataSource>
