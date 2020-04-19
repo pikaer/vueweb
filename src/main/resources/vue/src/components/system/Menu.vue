@@ -29,18 +29,10 @@
             <el-button type="success" size="mini">插入一条</el-button>
           </template>
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              @click="updateIndex(scope.row.id, 1)"
-              :disabled="!scope.row.canUp"
-            >
+            <el-button size="mini" @click="toUp(scope.row.id)" :disabled="!scope.row.canUp">
               <i class="fa fa-arrow-up"></i>
             </el-button>
-            <el-button
-              size="mini"
-              @click="updateIndex(scope.row.id, 2)"
-              :disabled="!scope.row.canDown"
-            >
+            <el-button size="mini" @click="todown(scope.row.id)" :disabled="!scope.row.canDown">
               <i class="fa fa-arrow-down"></i>
             </el-button>
             <el-button size="mini" @click="handleEdit(indexMethod(scope.$index), scope.row)">编辑</el-button>
@@ -78,10 +70,16 @@ export default {
         }
       });
     },
-    updateIndex(id, isUp) {
+    toUp(id) {
+      this.updateIndex(id, 1);
+    },
+    todown(id) {
+      this.updateIndex(id, 2);
+    },
+    updateIndex(id, type) {
       var that = this;
       this.$http
-        .post("menu/updateIndex", { id: id, isUp: isUp })
+        .post("menu/updateIndex", { id: id, type: type })
         .then(function({ data: response }) {
           if (response.code === 0) {
             that.getMenuList();
